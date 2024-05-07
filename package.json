@@ -1,0 +1,23 @@
+{
+  "name": "proyectosockets",
+  "version": "1.0.0",
+  "description": "Creacion de un servidor donde usaremos express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RubenGtz0/ProSockets.git"
+  },
+  "author": "Ruben Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RubenGtz0/ProSockets/issues"
+  },
+  "homepage": "https://github.com/RubenGtz0/ProSockets#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
