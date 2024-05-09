@@ -20,6 +20,12 @@ app.get('/', function (req, res){
  */
 io.on('connection', function(socket){
     console.log("Alguien se ha conectado con socket")
+    /**Aqui controlamos los eventod del cliente mediante sockets */
+    socket.emit('messages', {
+        id:1,
+        texto: "Un escalon arriba",
+        autor: "RG"
+    });
 });
 server.listen(3002, function(){
     console.log("El servidor esta corriendo en http://localhost:3002");
