@@ -10,6 +10,13 @@ var server=require('http').Server(app);
  * 
 */
 var io= require('socket.io')(server);
+//array que guarda los mensajes
+var messages =[{
+    id:1,
+    texto: "Un escalon arriba",
+    autor: "RG"
+}];
+
 app.use(express.static ('public'));
 app.get('/', function (req, res){
     res.status(200).send("Hola Mundo");
@@ -21,13 +28,15 @@ app.get('/', function (req, res){
 io.on('connection', function(socket){
     console.log("Alguien se ha conectado con socket")
     /**Aqui controlamos los eventod del cliente mediante sockets */
-    socket.emit('messages', {
-        id:1,
-        texto: "Un escalon arriba",
-        autor: "RG"
+    socket.emit('messages', messages);
+    socket.on('new-message',function(data){
+    messages.push(data);
+    //Queremos que todos los mensajes se manden a todos los clientes    
+    io.sockets.emit('messages', messages);
     });
+
 });
 server.listen(3002, function(){
     console.log("El servidor esta corriendo en http://localhost:3002");
-//
+
 });

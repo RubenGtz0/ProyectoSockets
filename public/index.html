@@ -3,28 +3,27 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Aplicacion con sockets</title>
+    <title>Aplicación con sockets</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <!-- Mandamos llamar la libreria para que el frontend use socket.io-->
-    <!-- Es una libreria que se utiliza tanto en el server como en el cliente-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="/socket.io/socket.io.js"></script>
-    <!--mandamos a llamar nuestra propia libreria main.js-->
     <script src='main.js'></script>
 </head>
 <body>
-    <h1> Mi aplicacion </h1>
-    <!-- Queremos que estos mensajes se vean en nuestra pagina como un chat-->
-    <div id="messages"></div>
-    <br>
-    <!-- Creamos un formulario para mandar mensajes-->
-    <!-- No pondremos -->
-<form onsubmit="return addMessage(this)">
-    <input type="text" id="username" placeholder="Tu nombre">
-    <input type="text" id="texto" placeholder="Cuentanos algo">
-    <input type="submit" value="Enviar">
-</form>
-</div>
+    <div class="container mt-4">
+        <h1 class="text-center">Mi aplicación de Chat</h1>
+        <div id="messages" class="p-3 border bg-light" style="height: 300px; overflow-y: scroll;">
+            <!-- Los mensajes aparecerán aquí -->
+        </div>
+        <form onsubmit="return addMessage(this)" class="mt-3">
+            <div class="form-group">
+                <input type="text" id="username" class="form-control" placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+                <input type="text" id="texto" class="form-control" placeholder="Cuéntanos algo">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
-//

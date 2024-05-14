@@ -18,11 +18,12 @@ socket.on('messages', function(data){
 function render (data){
     //Aqui se inicia el manejo de string que viene en EM6 se usan estas comillas ´´
     // Las variables se colocan con el signo de $ y entre {}
-    var html = `<div>
-    <strong> ${data.autor}</strong>:
-    <em>${data.texto}</em>
-    </div>`;
-
+    var html = data.map(function(elem, index){
+        return(`<div>
+            <strong>${elem.autor}</strong>:
+            <em>${elem.texto}</em>
+            </divZ>`);
+    }).join("");
     document.getElementById('messages').innerHTML=html;
 }
 //Despues renderizamos los datos actualizados en la consola
@@ -31,8 +32,8 @@ function render (data){
 //El cliente emite un nuevo mensaje y manda el payload
 function addMessage(e){
     var payload = {
-        autor: document.getElementById(username).value,
-        texto: document.getElementById(texto).value
+        autor: document.getElementById('username').value,
+        texto: document.getElementById('texto').value
     };
     socket.emit('new-message', payload);
     return false;
