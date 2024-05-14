@@ -1,6 +1,6 @@
 {
   "name": "proyectosockets",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Creacion de un servidor donde usaremos express",
   "main": "index.js",
   "scripts": {
